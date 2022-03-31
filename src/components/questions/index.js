@@ -8,7 +8,7 @@ const Questions = (props) =>{
     console.log(props)
     let history = useNavigate ();
     return  (
-         <div className="login-page">
+         <div className="questions-page">
              <h1 className="title">Hi!</h1>
              <h3 className='name-user'>qoustion s </h3>
 

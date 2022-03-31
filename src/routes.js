@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './components/app/App';
-import Login from './components/login/Login';
+import Login from './components/login';
 import Questions from './components/questions'
 
 import {
