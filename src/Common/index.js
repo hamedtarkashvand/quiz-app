@@ -1,4 +1,5 @@
 import Input from './input'
 import Button from './button'
+import Progressbar from './progressbar'
 
-export { Input , Button }
+export { Input , Button, Progressbar }

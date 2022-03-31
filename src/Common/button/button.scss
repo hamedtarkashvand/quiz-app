@@ -1,3 +1,4 @@
+@import '../../Global/colors';
 .button {
     width: 100%;
     text-transform: capitalize;
@@ -5,14 +6,15 @@
     padding: 12px 15px;
     border-radius: 25px;
     font-size: 15px;
-    color:  #f9f9f9;
+    color:  $textColor6161;
     border:0;
     cursor: pointer;
     &.sucess {
-        background-color: #15c872;
+        background-color: $green15C;
+        color:$white
     }
     &:hover {
-        background-color: #15bb6b;
+        background-color: darken($color: $green15C, $amount: 3);
     }
     &:disabled{
         opacity: 0.8;
@@ -20,7 +22,7 @@
         pointer-events: unset!important;
         
         &:hover {
-            background-color: #15c872;
+            background-color: $green15C;
         }
     }
     // &::placeholder {
