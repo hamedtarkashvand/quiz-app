@@ -1,6 +1,8 @@
 import React from 'react';
 import App from './components/app/App';
 import Login from './components/login/Login';
+import Questions from './components/questions'
+
 import {
     BrowserRouter as Router,
     Routes,
@@ -13,6 +15,7 @@ import {
         <Routes>
             <Route exact  path="/" element={<App />}  />
             <Route  path="login" element={<Login />}  />
+            <Route  path="questions" element={<Questions />}  />
         </Routes>
      </Router>
     )

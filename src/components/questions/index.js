@@ -2,15 +2,15 @@ import React from 'react';
 import { useNavigate  } from "react-router-dom";
 
 import {Input , Button} from '../../Common'
-import './login.scss'
+import './questions.scss'
 
-const Login = (props) =>{
+const Questions = (props) =>{
     console.log(props)
     let history = useNavigate ();
     return  (
          <div className="login-page">
              <h1 className="title">Hi!</h1>
-             <h3 className='name-user'>Hamed Torkashvand</h3>
+             <h3 className='name-user'>qoustion s </h3>
 
              <h3 className='ask'>What's your name?</h3>
              <Input onChange={(e)=>console.log(e.target.value)} placeHolder='your name'/>
@@ -22,4 +22,4 @@ const Login = (props) =>{
          </div>
      )}
 
-export default Login
+export default Questions
