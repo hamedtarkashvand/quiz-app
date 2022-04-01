@@ -8,7 +8,7 @@ const Card = ({current , max , question}) => {
           <div className="counter">
              <span className='current'>{current}</span>
              /
-             <span className='max'>{max}</span>
+             <span className='amount'>{max}</span>
           </div>
         </div> 
         <div className="question">

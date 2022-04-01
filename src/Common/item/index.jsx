@@ -1,11 +1,11 @@
 import React from 'react';
 import './item.scss'
 
- const Item = ({lable,className,disabled, type,onClick}) => {
+ const Item = ({lable,className,disabled,onClick}) => {
     return (
         <button
          disabled={disabled}
-         className={`button ${className||''} ${type}`}
+         className={`item-list ${className||''}`}
          onClick={onClick}>
              {lable}
         </button>

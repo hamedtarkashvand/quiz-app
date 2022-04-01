@@ -8,7 +8,7 @@ const Questions = () =>{
            <section className="wrapper-progressbar">
             <Progressbar value={5}/>
           </section>
-          <section className="wrapper-card">
+          <section className="wrapper-question">
             <Card
               current={5} 
               max={10}
@@ -22,18 +22,20 @@ const Questions = () =>{
                   <li className="item">
                     <Item                   
                       lable="Fig"
+                      className='correct'
                       onClick={(e)=>console.log('e.target.value')}
                       />
                   </li>
                   <li className="item">
                     <Item 
+                    className='selected'
                       lable="Grape"
                       onClick={(e)=>console.log('e.target.textcontent')}
                       />
                   </li>
                 </ul>
             </div>
-
+            
           </section>
               
            </div>
