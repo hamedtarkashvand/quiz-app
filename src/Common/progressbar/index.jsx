@@ -5,7 +5,6 @@ import {CColor} from './../../Global/style';
 
 const Progressbar = ({value=5}) =>{
     return  (
-           <div className="wrapper-progressbar">
              <div className="progressbar">
               <CircularProgressbar
                 maxValue={10}
@@ -21,7 +20,6 @@ const Progressbar = ({value=5}) =>{
                 strokeWidth={8}
               />
              </div>
-           </div>
      )}
 
 export default Progressbar

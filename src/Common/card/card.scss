@@ -1,0 +1,28 @@
+@import './../../Global/colors';
+.card {
+    background-color:$white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 17px 8px 0px #00000017;
+    .inner{
+        display: flex;
+        color: $textColor8080;
+        font-size: 20px;
+        .counter{
+            margin: 0 0 40px 5px;
+            .current , .max{
+                padding: 0 5px;
+            }
+        }
+    }
+    .question {
+        p {
+            font-size: 20px;
+            color: lighten( $textColor8080, 9);
+            text-transform: capitalize;
+        }
+    }
+}
