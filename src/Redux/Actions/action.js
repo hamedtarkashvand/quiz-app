@@ -6,7 +6,7 @@ export const updateIndex = (index) => ({
     type: 'INDEX',
     payload: index,
   });
-export const getUserName = (userName) => ({
-    type: 'GET_USER_NAME',
+export const setUserName = (userName) => ({
+    type: 'SET_USER_NAME',
     payload: userName,
   });

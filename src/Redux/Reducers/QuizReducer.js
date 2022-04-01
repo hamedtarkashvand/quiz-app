@@ -4,12 +4,12 @@ allQuestions:[],
 index:0
 }
 
-export const questionsReducer = (
+export const QuizReducer = (
 state = initialState,
 action 
 ) => {
     switch (action.type) {
-        case 'GET_USER_NAME' :
+        case 'SET_USER_NAME' :
             return {
                 ...state,
                 userName:action.payload

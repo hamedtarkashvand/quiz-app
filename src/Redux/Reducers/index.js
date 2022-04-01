@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import {questionsReducer} from './QuestionReducer'
+import {QuizReducer} from './QuizReducer'
 
 export const rootReducer = combineReducers({
-    question:questionsReducer
+    quiz:QuizReducer
 })

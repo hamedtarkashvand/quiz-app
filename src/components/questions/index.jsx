@@ -1,7 +1,11 @@
 import React from 'react';
+import { useSelector} from 'react-redux';
+
 import {Progressbar, Card , Item} from '../../Common';
 import './questions.scss';
 const Questions = () =>{
+ const userName = useSelector(state=>state.quiz.userName)
+
     return  (
          <div className="questions-page">
            <div className='header'>
@@ -14,7 +18,7 @@ const Questions = () =>{
               max={10}
               question={' what did early chirstains view as the fruit of evil ?'}/>
           </section>
-
+          
           <section className="wrapper-options">
 
             <div className="list-items">
