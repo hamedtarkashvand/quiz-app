@@ -1,5 +1,5 @@
 import React from 'react';
-import {Progressbar, Card , Button} from '../../Common';
+import {Progressbar, Card , Item} from '../../Common';
 import './questions.scss';
 const Questions = () =>{
     return  (
@@ -20,10 +20,15 @@ const Questions = () =>{
             <div className="list-items">
                 <ul className="list">
                   <li className="item">
-                    <Button 
-                      lable="option 1"
-                      onClick={(e)=>console.log(e.target.textcontent)}
-                      
+                    <Item                   
+                      lable="Fig"
+                      onClick={(e)=>console.log('e.target.value')}
+                      />
+                  </li>
+                  <li className="item">
+                    <Item 
+                      lable="Grape"
+                      onClick={(e)=>console.log('e.target.textcontent')}
                       />
                   </li>
                 </ul>

@@ -1,0 +1,33 @@
+@import '../../Global/colors';
+.button {
+    width: 100%;
+    text-transform: capitalize;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 24px;
+    color:  $textColor6161;
+    border:0;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px rgb(0 0 0 / 9%);
+    &.sucess {
+        background-color: $green15C;
+        color:$white
+    }
+    &:hover {
+        background-color: darken($color: $green15C, $amount: 3);
+    }
+    &:disabled{
+        opacity: 0.8;
+        cursor: default;
+        pointer-events: unset!important;
+        
+        &:hover {
+            background-color: $green15C;
+        }
+    }
+    // &::placeholder {
+    //     color:  #b9b9b9;
+    //     font-size: 15px;
+    // }
+}
