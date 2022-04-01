@@ -12,4 +12,4 @@ import './button.scss'
     )
 }
 
-export default Button
+export {Button}

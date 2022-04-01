@@ -20,4 +20,4 @@ const Card = ({current , max , question}) => {
     )
 }
 
-export default Card
+export {Card}

@@ -6,7 +6,7 @@ const Questions = () =>{
          <div className="questions-page">
            <div className='header'>
            <section className="wrapper-progressbar">
-            <Progressbar value={5}/>
+            <Progressbar progressValue={5}/>
           </section>
           <section className="wrapper-question">
             <Card

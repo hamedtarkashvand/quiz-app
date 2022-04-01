@@ -1,13 +1,5 @@
-import Input from './input'
-import Button from './button'
-import Progressbar from './progressbar'
-import Card from './card'
-import Item from './item'
-
-export {
-     Input,
-     Button,
-     Progressbar,
-     Card,
-     Item 
-    }
+export *  from './input'
+export *  from './button'
+export *  from './progressbar'
+export *  from './card'
+export *  from './item'

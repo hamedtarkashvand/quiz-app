@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import RoutesApp from './routes'
+import RoutesApp from './routes';
 import reportWebVitals from './reportWebVitals';
+import {store} from './Redux/store';
+import {Provider} from 'react-redux';
 
  const root = ReactDOM.createRoot(document.getElementById('root'))
  root.render(
   <React.StrictMode>
     <div className="containerApp">
-      <RoutesApp/>
+      <Provider store={store}>
+        <RoutesApp/>
+      </Provider>
     </div>
   </React.StrictMode>,
   

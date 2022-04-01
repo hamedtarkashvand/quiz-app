@@ -12,4 +12,4 @@ import './item.scss'
     )
 }
 
-export default Item
+export {Item}

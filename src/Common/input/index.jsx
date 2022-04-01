@@ -12,4 +12,4 @@ import './input.scss'
     )
 }
 
-export default Input
+export {Input}
