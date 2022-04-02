@@ -5,9 +5,9 @@ import {
   Route,
 } from "react-router-dom";
 
-import App from './components/app/App';
-import Login from './components/login';
-import Questions from './components/questions'
+import App from './Pages/app/App';
+import Login from './Pages/login';
+import Questions from './Pages/questions'
 
 
 
