@@ -4,6 +4,8 @@ const initState = {
 userName:null,
 allQuestions:[],
 index:0,
+correctAnswer:0,
+retry:false,
 loading:false
 }
 
@@ -21,16 +23,31 @@ loading:false
                 allQuestions:action.payload
 
             };
-        case actionType.CHANG_INDEX :
+
+        case actionType.CHENG_INDEX :
             return {
                 ...state,
                 index:action.payload 
             };
-        case actionType.CHANG_LOADING :
+
+        case actionType.CHENG_CORRECT_ANSWER :
+            return {
+                ...state,
+                correctAnswer:action.payload
+            };
+
+        case actionType.CHENG_LOADING :
             return {
                 ...state,
                 loading:action.payload
             };
+
+        case 'RETRY' :
+            return {
+                ...state,
+                retry:!state.retry
+            };
+
         default:
            return state
     }

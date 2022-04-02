@@ -1,8 +1,9 @@
 export const actionType = {
     SET_USER_NAME:'SET_USER_NAME',
     SET_QUESTIONS:'SET_QUESTIONS',
-    CHANG_INDEX:'CHANG_INDEX',
-    CHANG_LOADING:'CHANG_LOADING'
+    CHENG_INDEX:'CHANG_INDEX',
+    CHENG_LOADING:'CHANG_LOADING',
+    CHENG_CORRECT_ANSWER:'CHENG_CORRECT_ANSWER'
 }
 
 export const setQuestions = (question) => ({
@@ -12,7 +13,7 @@ export const setQuestions = (question) => ({
   
 export const updateIndex = (index) => {
     return {
-       type: actionType.CHANG_INDEX,
+       type: actionType.CHENG_INDEX,
        payload: index,
     }
 };
@@ -22,6 +23,11 @@ export const setUserName = (userName) => ({
   });
 
 export const changLoading = (loading) => ({
-    type: actionType.CHANG_LOADING,
+    type: actionType.CHENG_LOADING,
     payload: loading,
+  });
+
+export const changCorrectAnswer = (countCorrect) => ({
+    type: actionType.CHENG_CORRECT_ANSWER,
+    payload:countCorrect
   });
