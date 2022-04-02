@@ -1,32 +1,39 @@
-const initialState = {
+import {actionType} from '../Actions'
+
+const initState = {
 userName:null,
 allQuestions:[],
-index:0
+index:0,
+loading:false
 }
 
-export const QuizReducer = (
-state = initialState,
-action 
-) => {
+ const QuizReducer = (state = initState, action ) => {
     switch (action.type) {
-        case 'SET_USER_NAME' :
+        case actionType.SET_USER_NAME :
             return {
                 ...state,
                 userName:action.payload
-            }
+            };
 
-        case 'GET_ALL_QUESTION':
+        case actionType.SET_QUESTIONS:
             return {
                 ...state,
-                allQuestions:[...state,action.payload]
+                allQuestions:action.payload
 
-            }
-        case 'INDEX' :
+            };
+        case actionType.CHANG_INDEX :
             return {
                 ...state,
-                index:action.payload
-            }
+                index:action.payload 
+            };
+        case actionType.CHANG_LOADING :
+            return {
+                ...state,
+                loading:action.payload
+            };
         default:
            return state
     }
 }
+
+export default QuizReducer

@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import { useDispatch} from 'react-redux';
 import { useNavigate  } from "react-router-dom";
-import { setUserName } from './../../Redux/Actions'
+import { setUserName } from '../../Redux/Actions'
 
 import {Input , Button} from '../../Common'
 import './login.scss'
@@ -11,7 +11,7 @@ const Login = () =>{
     const dispatch = useDispatch();
     const [name , setName] = useState('')
 
-    const onSubmitUserName = (event) =>{
+    const onChangeUserName = (event) =>{
       setName(event)
       dispatch(setUserName(event))
     }
@@ -22,7 +22,7 @@ const Login = () =>{
              <h3 className='name-user'>{name || ''}</h3>
 
              <h3 className='ask'>What's your name?</h3>
-             <Input onChange={(e)=>onSubmitUserName(e.target.value)} placeHolder='your name'/>
+             <Input onChange={(e)=>onChangeUserName(e.target.value)} placeHolder='your name'/>
              <Button
               lable='start game' 
               type='sucess'
