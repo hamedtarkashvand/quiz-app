@@ -4,7 +4,8 @@ import useFetchQuestions from '../../Hooks/useFetchQuestions'
 import { updateIndex} from '../../Redux/Actions'
 
 import { useSelector , useDispatch } from 'react-redux';
-import { Progressbar, Card , ListOptions , Loading } from '../../Common';
+import { Progressbar, Card , Loading } from '../../Common';
+import {ListOptions} from './listOptions'
 import './questions.scss';
 
 const Questions = () => {
