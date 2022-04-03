@@ -58,7 +58,7 @@ const Questions = () => {
   };
 
   const stopTime = (e) => {
-    // history('/endGame') 
+    history('/endGame') 
   };
 
 
