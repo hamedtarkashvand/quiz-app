@@ -52,9 +52,6 @@ export const ListOptions = (
       return;
     }
 
-    // if (questionIndex + 1 === encodedQuestions.length) {
-    //   console.log('end list');
-    // }
 
     let answers = [...question.incorrect_answers]
     answers.splice(getRandomNumber(question.incorrect_answers.length + 1), 0, question.correct_answer)
@@ -85,6 +82,7 @@ export const ListOptions = (
         if ( questionIndex + 1  === allQuestion.length ) {
           setDisabled(true)
           endList()
+
           // dispatch(updateIndex(0))
           // dispatch(changCorrectAnswer(0))
         } else {
@@ -93,7 +91,7 @@ export const ListOptions = (
           onChange()
         }
        
-      }, 500)
+      }, 1500)
     }
   
   }

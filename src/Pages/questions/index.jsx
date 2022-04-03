@@ -4,7 +4,7 @@ import useFetchQuestions from '../../Hooks/useFetchQuestions'
 import { updateIndex} from '../../Redux/Actions'
 
 import { useSelector , useDispatch } from 'react-redux';
-import { Progressbar, Card , ListOptions } from '../../Common';
+import { Progressbar, Card , ListOptions , Loading } from '../../Common';
 import './questions.scss';
 
 const Questions = () => {
@@ -14,8 +14,7 @@ const Questions = () => {
   let timerID = {}
   const encodedQuestions  = useSelector(state=>state.quiz.allQuestions)
   const questionIndex  = useSelector(store=>store.quiz.index)
-
-  const loading = useSelector(state=>state.quiz.loading)
+  const stateLoading = useSelector(state=>state.quiz.loading)
   // const correctAnswer = useSelector(state=>state.quiz.correctAnswer)
   
   const [question , setqestion] = useState({})
@@ -70,11 +69,15 @@ const Questions = () => {
 
 
 
+
     return  (
          <div className="questions-page">
+            {
+              !stateLoading ||  <Loading/>
+            }
            <div className='header'>
            <section className="wrapper-progressbar">
-            <Progressbar valueProgress={time.seconds}/>
+            <Progressbar valueProgress={ !stateLoading ? time.seconds : 0}/>
           </section>
           <section className="wrapper-question">
             <Card
@@ -82,18 +85,17 @@ const Questions = () => {
               max={encodedQuestions.length}
               question={question&&question.question}/>
           </section>
-            {
-              loading && <div>loading</div>
-            }
+        
           <section className="wrapper-options">
               {
-                encodedQuestions ? <ListOptions 
+                stateLoading ||  <ListOptions 
                 encodedQuestions={encodedQuestions}
                 onClick={resetTime}
                 onChange={pausedTime}
                 endList={()=>stopTime()}
                 currentQustion={setqestion}
-                /> : ''
+                />
+               
               }
           </section>
               
