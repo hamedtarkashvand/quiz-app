@@ -14,7 +14,7 @@ const EndGame = () =>{
     return  (
          <div className="login-page">
              <h1 className="text">Great !</h1>
-             <h3 className='text'>{username}</h3>
+             <h3 className='userName'>{username}</h3>
              <h3 className='text'>You've answred</h3>
              <h3 className='correctAnswer'>{`${correctAnswer} / ${allQuestions.length}`}</h3>
              <h3 className='text'>of Questions</h3>
