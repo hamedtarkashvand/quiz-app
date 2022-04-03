@@ -1,5 +1,5 @@
-# Awful_Tic-Tac-Toe_App
-- React Native tic tac toe game , with AI
+# Quiz App 
+- React  Quiz App game , with AI
 - I named this game awful cause you can't ever win the AI inside it :)
 
 # Features
