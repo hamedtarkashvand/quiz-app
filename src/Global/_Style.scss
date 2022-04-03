@@ -7,23 +7,18 @@ $textColor8080:#808080;
 $textColor6161:#616161;
 
 
-
 @mixin respond ($breakpoint) {
 
-    // $breakpoint is simply a variable that can have several values
+    @if $breakpoint==mobileL {
 
-    @if $breakpoint==tablet {
-
-        // here `laptop` is the value of $breakpoint
-        // when call laptop, we mean the following piece of code        
-
-    @media only screen and (max-width: 600px) {
+       
+    @media only screen and (max-width: 480px) {
       @content;
     }
   }
 
-  @if $breakpoint==mobile {
-    @media only screen and (max-width: 480px) {
+  @if $breakpoint==mobileM {
+    @media only screen and (max-width: 375px) {
       @content;
     }
   }

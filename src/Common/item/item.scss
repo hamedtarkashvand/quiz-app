@@ -34,4 +34,9 @@
         cursor: default;
         pointer-events: unset!important;
     }
+
+    @include respond(mobileM) {
+        font-size: 20px;
+        
+     }
 }
