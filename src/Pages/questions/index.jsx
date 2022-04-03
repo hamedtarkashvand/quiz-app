@@ -1,100 +1,72 @@
-import React , { useState , useEffect} from 'react';
+import React , {useEffect, useState} from 'react';
+import { useNavigate  } from "react-router-dom";
 import useFetchQuestions from '../../Hooks/useFetchQuestions'
+import { updateIndex} from '../../Redux/Actions'
+
 import { useSelector , useDispatch } from 'react-redux';
-import { updateIndex , changCorrectAnswer , loading  } from '../../Redux/Actions'
-import { decodeHTML } from '../../Global/utils'
-import { Progressbar, Card , Item } from '../../Common';
+import { Progressbar, Card , ListOptions } from '../../Common';
 import './questions.scss';
 
 const Questions = () => {
-    
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
+  let history = useNavigate ();
   useFetchQuestions()
-
+  let timerID = {}
   const encodedQuestions  = useSelector(state=>state.quiz.allQuestions)
   const questionIndex  = useSelector(store=>store.quiz.index)
+
   const loading = useSelector(state=>state.quiz.loading)
-  const correctAnswer = useSelector(state=>state.quiz.correctAnswer)
-
-
-  const [allQuestion, setAllQuestions] = useState([])
-  const [answerSelected, setAnswerSelected] = useState(false)
-  const [selectedAnswer, setSelectedAnswer] = useState(null)
-  const [disabled, setDisabled] = useState(false)
-  const [answers, setAnswer] = useState([])
-
-  useEffect(() => {
-    const createNewObject = encodedQuestions.map(item => {
-      return {
-        ...item,
-        question: decodeHTML(item.question),
-        correct_answer: decodeHTML(item.correct_answer),
-        incorrect_answers: item.incorrect_answers.map(answer => decodeHTML(answer))
-      }
-    })
-
-    setAllQuestions(createNewObject)
-  }, [encodedQuestions])
-
-  const question = allQuestion[questionIndex]
-  const answer = question && question.correct_answer
-
-  const getRandomInt = (max) => {
-    return Math.floor(Math.random() * Math.floor(max))
-  }
-
-
-  useEffect(() => {
-    if (!question) {
-      return;
-    }
-    let answers = [...question.incorrect_answers]
-    answers.splice(getRandomInt(question.incorrect_answers.length), 0, question.correct_answer)
-    setAnswer(answers)
-  }, [question])
-
-  const handleListItemClick = (event) => {
-    setDisabled(true)
-    setAnswerSelected(true)
-    setSelectedAnswer(event.target.textContent)
-
-
-    if(event.target.textContent === answer) {
-        dispatch(changCorrectAnswer(correctAnswer + 1))
-    }
-
-
-    if (questionIndex + 1 <= allQuestion.length) {
-      
-      setTimeout(() => {
-        setAnswerSelected(false)
-        setSelectedAnswer(null)
-
-        if ( questionIndex + 1  === allQuestion.length ) {
-          setDisabled(true)
-          dispatch(updateIndex(0))
-          dispatch(changCorrectAnswer(0))
-        } else {
-          setDisabled(false)
-          dispatch(updateIndex(questionIndex + 1))
-        }
-       
-      }, 1500)
-    }
+  // const correctAnswer = useSelector(state=>state.quiz.correctAnswer)
   
-  }
+  const [question , setqestion] = useState({})
+  
 
-  const getClass = option => {
-    if (!answerSelected) {
-      return ``;
-    }
-    if (option === answer) {
-      return `correct`
-    }
-    if (option === selectedAnswer) {
-      return `selected`
-    }
-  }
+  const [paused, setPaused] = useState(false);
+  const [over, setOver] = useState(false);
+  const [time, setTime] = useState({
+    seconds: parseInt(10)
+  });
+
+  const tick = () => {
+    if (paused || over) return;
+    if (time.seconds === 0 && questionIndex + 1 === encodedQuestions.length) {
+      stopTime()
+    } else if (time.seconds === 0 ) {
+      setOver(true);
+      dispatch(updateIndex(questionIndex + 1))
+    
+    } else if (time.seconds > 0 ) {
+     
+      setTime({
+        seconds: time.seconds - 1
+      });
+    } 
+
+  };
+
+  const resetTime = () => {
+    setTime({
+      seconds: parseInt(10)
+    });
+    setPaused(false);
+    setOver(false);
+  };
+
+  const pausedTime = () => {
+    clearInterval(timerID);
+    setPaused(false);
+    setOver(false);
+  };
+
+  const stopTime = (e) => {
+    history('/endGame') 
+  };
+
+
+  useEffect(() => {
+     timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  },[time,questionIndex]);
 
 
 
@@ -102,37 +74,27 @@ const Questions = () => {
          <div className="questions-page">
            <div className='header'>
            <section className="wrapper-progressbar">
-            <Progressbar progressValue={5}/>
+            <Progressbar valueProgress={time.seconds}/>
           </section>
           <section className="wrapper-question">
             <Card
-              current={correctAnswer} 
+              current={questionIndex + 1} 
               max={encodedQuestions.length}
-              question={question?.question}/>
+              question={question&&question.question}/>
           </section>
             {
               loading && <div>loading</div>
             }
           <section className="wrapper-options">
-
-            <div className="list-items">
-                <ul className="list">
-                  {
-                    answers.map((answer)=>(
-                      <li  key={answer} className="item">
-                        <Item
-                          key={answer} 
-                          disabled={disabled}                
-                          lable={answer}
-                          className={getClass(answer)}
-                          onClick={handleListItemClick}
-                          />
-                    </li>
-                    ))
-                  }
-                </ul>
-            </div>
-            
+              {
+                encodedQuestions ? <ListOptions 
+                encodedQuestions={encodedQuestions}
+                onClick={resetTime}
+                onChange={pausedTime}
+                endList={()=>stopTime()}
+                currentQustion={setqestion}
+                /> : ''
+              }
           </section>
               
            </div>

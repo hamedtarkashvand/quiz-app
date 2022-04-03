@@ -3,7 +3,8 @@ export const actionType = {
     SET_QUESTIONS:'SET_QUESTIONS',
     CHENG_INDEX:'CHANG_INDEX',
     CHENG_LOADING:'CHANG_LOADING',
-    CHENG_CORRECT_ANSWER:'CHENG_CORRECT_ANSWER'
+    CHENG_CORRECT_ANSWER:'CHENG_CORRECT_ANSWER',
+    SET_CURRENT_QUESTION:'SET_CURRENT_QUESTION'
 }
 
 export const setQuestions = (question) => ({
@@ -30,4 +31,9 @@ export const changLoading = (loading) => ({
 export const changCorrectAnswer = (countCorrect) => ({
     type: actionType.CHENG_CORRECT_ANSWER,
     payload:countCorrect
+  });
+
+export const setCurrentQuestion = (question) => ({
+    type: actionType.SET_CURRENT_QUESTION,
+    payload:question
   });

@@ -3,3 +3,7 @@ export const decodeHTML = function (html) {
     areaElement.innerHTML = html
     return areaElement.value
   }
+
+  export const getRandomNumber = (max) => {
+    return Math.floor(Math.random() * Math.floor(max))
+  }

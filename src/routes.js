@@ -5,9 +5,9 @@ import {
   Route,
 } from "react-router-dom";
 
-import App from './Pages/app/App';
 import Login from './Pages/login';
 import Questions from './Pages/questions'
+import EndGame from './Pages/endGame'
 
 
 
@@ -15,9 +15,9 @@ import Questions from './Pages/questions'
     return (
       <Router>
         <Routes>
-            <Route  path="/" element={<App />}  />
-            <Route  path="login" element={<Login />}  />
+            <Route  path="/" element={<Login />}  />
             <Route  path="questions" element={<Questions />}  />
+            <Route  path="endGame" element={<EndGame />}  />
         </Routes>
      </Router>
     )

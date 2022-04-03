@@ -3,14 +3,15 @@ import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {CColor} from './../../Global/style';
 
-const defaultValue = 5
-const Progressbar = ({valueProgress=defaultValue}) =>{
+const Progressbar = ({valueProgress}) =>{
     return  (
              <div className="progressbar">
               <CircularProgressbar
                 maxValue={10}
+                minValue={0}
+  
                 value={valueProgress}
-                text={valueProgress}
+                text={`${valueProgress}`}
                 styles={buildStyles({
                   textColor: CColor.white,
                   textSize: "35px",

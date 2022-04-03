@@ -6,7 +6,8 @@ allQuestions:[],
 index:0,
 correctAnswer:0,
 retry:false,
-loading:false
+loading:false,
+currentQuestion:{}
 }
 
  const QuizReducer = (state = initState, action ) => {
@@ -41,6 +42,13 @@ loading:false
                 ...state,
                 loading:action.payload
             };
+
+        case actionType.SET_CURRENT_QUESTION :
+            return {
+                ...state,
+                currentQuestion:action.payload
+            };
+
 
         case 'RETRY' :
             return {
